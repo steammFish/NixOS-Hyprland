@@ -31,6 +31,15 @@
     openssl #required by Rainbow borders
     pciutils
     vim
+    helix
+    ripgrep
+    bat
+    filebrowser
+    vscode
+    tldr
+    qq
+    telegram-desktop
+    google-chrome
     wget
     xdg-user-dirs
     xdg-utils

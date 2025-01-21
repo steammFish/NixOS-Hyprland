@@ -113,6 +113,9 @@
   local.hardware-clock.enable = false;
 
   # networking
+  networking.proxy.default = "http://192.168.43.1:10809/";
+  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
   networking.networkmanager.enable = true;
   networking.hostName = "${host}";
   networking.timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
@@ -134,6 +137,20 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+
+ i18n.inputMethod = {
+   type = "fcitx5";
+   enable = true;
+   fcitx5.addons = with pkgs; [
+     fcitx5-mozc
+     fcitx5-gtk
+     fcitx5-chinese-addons  # table input method support
+     rime-data
+     fcitx5-rime
+
+   ];
+ };
+
 
   nixpkgs.config.allowUnfree = true;
   
@@ -266,6 +283,8 @@
 	  upower.enable = true;
     
     gnome.gnome-keyring.enable = true;
+
+	  v2raya.enable = true;
     
     #printing = {
     #  enable = false;
